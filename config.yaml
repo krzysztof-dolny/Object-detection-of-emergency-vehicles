@@ -1,0 +1,19 @@
+# Paths
+path: C:/Users/krzys/Desktop/projekt_yolo/data
+train: images/train
+val: images/valid
+test: images/test
+
+# Classes
+names:
+  0: policja
+  1: policja_na_sygnale
+  2: straz
+  3: straz_na_sygnale
+  4: karetka
+  5: karetka_na_sygnale
+  6: wojsko
+  7: policja_nieoznakowana
+  8: na_sygnale
+  9: brak_sygnalizacji
+

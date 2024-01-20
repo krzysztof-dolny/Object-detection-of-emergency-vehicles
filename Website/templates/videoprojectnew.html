@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Video</title>
+    <style>
+        body {
+            color: white;
+            margin: 0;
+            padding: 0;
+            /* background-image: url('../static/images/tlo.png'); */ 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Wyśrodkowanie elementów w osi poziomej */
+            justify-content: center; /* Wyśrodkowanie elementów w osi pionowej */
+            height: 100vh; /* Wysokość 100% widoku, aby zajmować całą dostępną przestrzeń */
+        }
+
+        header.feature-box.top {
+            background-color: black;
+            height: 50px;
+            width: 100%; 
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .features {
+            background-color: black;
+            width: 900px;
+            height: 700px;
+            border-radius: 25px;
+            object-fit: contain;
+            margin: 20px;
+        }
+
+        section.col-sm {
+            background-color: black;
+            width: 1000px;
+            height: 650px;
+            border-radius: 35px;
+            object-fit: contain;
+            margin: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 25px;
+            object-fit: contain;
+        }
+
+        .new {
+            color: white;
+            margin: 20px 0;
+            padding: 20px;
+            margin: 0;
+            background-color: black; 
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+        }
+
+        .custom-file-input {
+            width: 250px;
+            margin-bottom: 10px;
+        }
+
+        .btnCustom {
+            width: 150px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="feature-box top">
+        <h1><strong>Detekcja pojazdów uprzywilejowanych przy użyciu modelu YOLOv8</strong></h1>
+    </header>
+
+    <section class="col-sm ">
+        <img src="{{ url_for('video') }}" alt="Upload video">
+    </section>
+
+    <section>
+        <div class="new">
+            <form method='POST' enctype="multipart/form-data">
+                {{form.hidden_tag()}}
+                {{form.file(class_="custom-file-input")}}
+                <button type="submit" name="favorite" value="x" class="btnCustom" style="margin: auto;">
+                    Rozpocznij detekcję 
+                </button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
